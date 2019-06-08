@@ -1509,6 +1509,7 @@ GameObject:
   - component: {fileID: 470469068}
   - component: {fileID: 470469067}
   - component: {fileID: 470469069}
+  - component: {fileID: 470469072}
   m_Layer: 0
   m_Name: "\u5236\u9020\u53F0  (\u5DE6)"
   m_TagString: CraftBench
@@ -1534,8 +1535,7 @@ MonoBehaviour:
   showTexture:
   - {fileID: 807201240}
   - {fileID: 148414454}
-  "\u8FB9\u7F18\u9AD8\u4EAE\u6750\u8D28": {fileID: 2100000, guid: e82f7146a0f51c74e96d63855db12e4f,
-    type: 2}
+  outlineMaterial: {fileID: 2100000, guid: e82f7146a0f51c74e96d63855db12e4f, type: 2}
 --- !u!61 &470469068
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1641,6 +1641,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &470469072
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470469066}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fbcde5c34ac3342448232c4971c3c1ca, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &471137163
 GameObject:
   m_ObjectHideFlags: 0
@@ -4707,6 +4726,7 @@ GameObject:
   - component: {fileID: 1323067270}
   - component: {fileID: 1323067272}
   - component: {fileID: 1323067275}
+  - component: {fileID: 1323067276}
   m_Layer: 0
   m_Name: "\u5236\u9020\u53F0\uFF08\u53F3\uFF09"
   m_TagString: CraftBench
@@ -4732,8 +4752,7 @@ MonoBehaviour:
   showTexture:
   - {fileID: 108794725}
   - {fileID: 471137164}
-  "\u8FB9\u7F18\u9AD8\u4EAE\u6750\u8D28": {fileID: 2100000, guid: e82f7146a0f51c74e96d63855db12e4f,
-    type: 2}
+  outlineMaterial: {fileID: 2100000, guid: e82f7146a0f51c74e96d63855db12e4f, type: 2}
 --- !u!61 &1323067271
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4852,6 +4871,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: -5
+--- !u!95 &1323067276
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323067269}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1432547503
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ public class CraftBench : MonoBehaviour
 
     private Prop[] 放着的材料; //定义了当前放在工作台上的材料，最多两个,后面需要更大数量的配方的时候可以修改
     public SpriteRenderer[] showTexture;   //用于显示当前放在工作台上的材料的图片，
+
+    private Animator miziAnimator;  //米子制造机的动画
     
 
     private float 已完成时间 = 0;   //定义了制作过程中已完成的时间
@@ -23,7 +25,7 @@ public class CraftBench : MonoBehaviour
     //使用音效播放脚本
     private AudioManager 播放角色音效的脚本;
 
-    public Material 边缘高亮材质;      //用于显示当玩家靠近该工作台时边缘高亮的材质
+    public Material outlineMaterial;      //用于显示当玩家靠近该工作台时边缘高亮的材质
     private Material spriteDefault;     //保存台子默认的材质
 
     private void Awake()
@@ -31,8 +33,12 @@ public class CraftBench : MonoBehaviour
         放着的材料 = new Prop[showTexture.Length];  //初始化
         播放角色音效的脚本 = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
+
         //初始化默认材质
         spriteDefault = this.GetComponent<SpriteRenderer>().material;
+
+        miziAnimator = this.GetComponent<Animator>();
+        miziAnimator.enabled = false;
     }
 
     //当角色与工作台交互时使用该函数:包含的功能有取材料，放材料，是否可以开始制作材料
@@ -233,6 +239,8 @@ public class CraftBench : MonoBehaviour
         已完成时间 += Time.deltaTime;
         制作进度条.fillAmount = (float)已完成时间 / 制作时间;
 
+        miziAnimator.enabled = true;
+
         if (已完成时间 >= 制作时间)  //计算已制作的时间是否等于所需的制作时间
         {
             //清空制作台上所有的材料
@@ -256,6 +264,9 @@ public class CraftBench : MonoBehaviour
         {
             CancelInvoke("Manufacting");
         }
+
+        miziAnimator.enabled = false;
+
     }
     //用于显示当前放在工作台上的材料的图片的图片
     private void Show_Mat_Texture()
@@ -278,7 +289,7 @@ public class CraftBench : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            this.GetComponent<SpriteRenderer>().material = 边缘高亮材质;
+            this.GetComponent<SpriteRenderer>().material = outlineMaterial;
             //Resources.Load("SpriteOutline", typeof(Material)) as Material;
         }
     }
