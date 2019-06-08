@@ -32,6 +32,8 @@ public class WorkBench : MonoBehaviour
     public Material 边缘高亮材质;      //用于显示当玩家靠近该工作台时边缘高亮的材质
     private Material spriteDefault;     //保存台子默认的材质
 
+    private Animator m2Animator;
+
     private void Awake()
     {
         放着的材料 = new Prop[showTexture.Length];  //初始化
@@ -39,6 +41,9 @@ public class WorkBench : MonoBehaviour
 
         //初始化默认材质
         spriteDefault = this.GetComponent<SpriteRenderer>().material;
+
+        m2Animator = this.GetComponent<Animator>();
+        m2Animator.enabled = false;
     }
 
     //当角色与工作台交互时使用该函数:包含的功能有取材料，放材料，是否可以开始制作材料
@@ -179,6 +184,8 @@ public class WorkBench : MonoBehaviour
         已完成时间 += Time.fixedDeltaTime;
         制作进度条.fillAmount = (float)已完成时间 / 制作时间;
 
+        m2Animator.enabled = true;
+
         if (已完成时间 >= 制作时间)  //计算已制作的时间是否等于所需的制作时间
         {
             //清空制作台上所有的材料
@@ -201,6 +208,8 @@ public class WorkBench : MonoBehaviour
         {
             CancelInvoke("Manufacting");
         }
+
+        m2Animator.enabled = false;
     }
     //用于显示当前放在工作台上的材料的图片的图片
     private void Show_Mat_Texture()

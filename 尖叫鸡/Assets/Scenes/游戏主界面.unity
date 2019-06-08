@@ -3649,6 +3649,7 @@ GameObject:
   - component: {fileID: 1050489738}
   - component: {fileID: 1050489739}
   - component: {fileID: 1050489740}
+  - component: {fileID: 1050489741}
   m_Layer: 0
   m_Name: "\u9489\u5B50\u52A0\u5DE5\u53F0"
   m_TagString: WorkBench
@@ -3845,6 +3846,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: -5
+--- !u!95 &1050489741
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050489732}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b000edde46db37742b97c3311dcbb357, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1054674701
 GameObject:
   m_ObjectHideFlags: 0
@@ -5631,6 +5651,7 @@ GameObject:
   - component: {fileID: 1762686446}
   - component: {fileID: 1762686451}
   - component: {fileID: 1762686452}
+  - component: {fileID: 1762686453}
   m_Layer: 0
   m_Name: "\u6728\u677F\u52A0\u5DE5\u53F0"
   m_TagString: WorkBench
@@ -5801,6 +5822,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: -5
+--- !u!95 &1762686453
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762686445}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1769734560
 GameObject:
   m_ObjectHideFlags: 0
