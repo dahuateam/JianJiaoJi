@@ -966,7 +966,7 @@ Transform:
   - {fileID: 726266074}
   - {fileID: 61071268}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223439898
 GameObject:
@@ -1144,6 +1144,8 @@ MonoBehaviour:
   moveSpeed: 40
   propTexture: {fileID: 1530058053}
   propPrefab: {fileID: 1552244072931199267, guid: 451e00c2de2e5f34f9e40b87707e37ac,
+    type: 3}
+  moveEffect: {fileID: 6164294548744157953, guid: 7dbe275d54e84ef4686f77928d15084f,
     type: 3}
   "\u5411\u4E0A\u79FB\u52A8\u6309\u952E": 119
   "\u5411\u4E0B\u79FB\u52A8\u6309\u952E": 115
@@ -2057,7 +2059,7 @@ PrefabInstance:
     - target: {fileID: 7092215741454271002, guid: 50106df6b388ecf4688467c902533434,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7092215741454271002, guid: 50106df6b388ecf4688467c902533434,
         type: 3}
@@ -4611,6 +4613,7 @@ MonoBehaviour:
   propTexture: {fileID: 416769611}
   propPrefab: {fileID: 1552244072931199267, guid: 451e00c2de2e5f34f9e40b87707e37ac,
     type: 3}
+  moveEffect: {fileID: 0}
   "\u5411\u4E0A\u79FB\u52A8\u6309\u952E": 105
   "\u5411\u4E0B\u79FB\u52A8\u6309\u952E": 107
   "\u5411\u5DE6\u79FB\u52A8\u6309\u952E": 106
@@ -4834,7 +4837,7 @@ Transform:
   - {fileID: 108794726}
   - {fileID: 471137165}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1323067275
 MonoBehaviour:
@@ -6988,7 +6991,7 @@ PrefabInstance:
     - target: {fileID: 2475570945236789985, guid: 986a1720a1f3a624ebad52c9c46c8050,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2475570945236789985, guid: 986a1720a1f3a624ebad52c9c46c8050,
         type: 3}

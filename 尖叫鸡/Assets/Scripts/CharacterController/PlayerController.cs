@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public SpriteRenderer propTexture;   //作为角色的子物体，用于显示当前角色所携带的材料的图片
     public GameObject propPrefab;        //作为扔下材料的预制体
+    public GameObject moveEffect;     //人物移动时产生的特效
 
     public KeyCode 向上移动按键;         //可以自定义玩家在各个方向移动的按键
     public KeyCode 向下移动按键;
@@ -41,6 +42,13 @@ public class PlayerController : MonoBehaviour
     //角色移动相关函数：
     private void PlayerMove()
     {
+        //有一个按键按下则产生烟尘
+        if (Input.GetKeyDown(向上移动按键)|| Input.GetKeyDown(向下移动按键)|| Input.GetKeyDown(向左移动按键)|| Input.GetKeyDown(向右移动按键))
+        {
+            GameObject g = Instantiate(moveEffect, this.transform);
+            Destroy(g,5); 
+        }
+
         //角色移动相关：
         if (Input.GetKey(向上移动按键))
         {
@@ -60,6 +68,8 @@ public class PlayerController : MonoBehaviour
             sr1.flipX = true;
             transform.Translate(Vector3.right * Time.deltaTime * moveSpeed, Space.World);
         }
+
+
     }
     //角色交互相关函数
     private void PlayerInterface()
