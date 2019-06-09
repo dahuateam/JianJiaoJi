@@ -76,12 +76,18 @@ public class Door : MonoBehaviour
 	[SerializeField]
 	private GameObject gameFailedWindow;
 	[SerializeField]
-    private Material 边缘高亮材质;      //用于显示当玩家靠近该工作台时边缘高亮的材质
-    
+	private Material 边缘高亮材质;      //用于显示当玩家靠近该工作台时边缘高亮的材质
+	[SerializeField]
+	private SpriteRenderer doorDisplay;
+	[SerializeField]
+	private Sprite spriteGood;
+	[SerializeField]
+	private Sprite spriteBad;
 
 
-    //私有属性
-    private int currentEventIndex = 0;//当前执行事件在列表中的下标
+
+	//私有属性
+	private int currentEventIndex = 0;//当前执行事件在列表中的下标
 	private float timer = 0;//计时器
 	private bool isLeftTimeIdle = false;//此时的idle状态是否为IDLE_LEFT_TIME导致的
 	private bool isListEnd = false;//事件列表是否已经执行完毕
@@ -102,6 +108,15 @@ public class Door : MonoBehaviour
 			{
 				healthDisplays[i].enabled = false;
 			}
+			//更改门的显示sprite
+			if (currentHealth <= 1)
+			{
+				doorDisplay.sprite = spriteBad;//门血量小于1,显示坏门素材
+			}
+			else
+			{
+				doorDisplay.sprite = spriteGood;//否则显示好门素材
+			}
 			//判断游戏是否结束
 			if (currentHealth <= 0)
 			{
@@ -110,29 +125,29 @@ public class Door : MonoBehaviour
 			}
 		}
 	}
-    private Material spriteDefault;     //保存台子默认的材质
+	private Material spriteDefault;     //保存台子默认的材质
 
-    void Start()
-    {
+	void Start()
+	{
 		CurrentHealth = maxHealth;//根据maxHealth初始化生命值
 		changeEvent(0);//开始第一个事件
-        
-        spriteDefault = this.GetComponent<SpriteRenderer>().material;//初始化默认材质
-    }
 
-    void Update()
-    {
+		spriteDefault = this.GetComponent<SpriteRenderer>().material;//初始化默认材质
+	}
+
+	void Update()
+	{
 		if (isListEnd) return;//若事件列表已执行完毕则返回
-		//更新计时器
+							  //更新计时器
 		if (timer > 0.0f) timer -= Time.deltaTime;
 		//若计时结束
 		if (timer <= 0.0f)
 		{
-			if(eventList[currentEventIndex].eventType == DoorEventType.IDLE)//IDLE事件计时结束
+			if (eventList[currentEventIndex].eventType == DoorEventType.IDLE)//IDLE事件计时结束
 			{
 				changeEvent(currentEventIndex + 1);//执行下一事件
 			}
-			else if(eventList[currentEventIndex].eventType == DoorEventType.BUSY)//BUSY事件计时结束
+			else if (eventList[currentEventIndex].eventType == DoorEventType.BUSY)//BUSY事件计时结束
 			{
 				if (isLeftTimeIdle)//IDLE_LEFT_TIME结束
 				{
@@ -145,11 +160,11 @@ public class Door : MonoBehaviour
 			}
 		}
 		//根据timer更新进度条的显示
-		if(eventList[currentEventIndex].eventType == DoorEventType.BUSY)
+		if (eventList[currentEventIndex].eventType == DoorEventType.BUSY)
 		{
 			handleDisplay.fillAmount = timer / eventList[currentEventIndex].busyTime;
 		}
-		
+
 	}
 
 	/// <summary>
@@ -234,17 +249,17 @@ public class Door : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Player")
 		{
-            this.GetComponent<SpriteRenderer>().material = 边缘高亮材质;
-            //Resources.Load("SpriteOutline", typeof(Material)) as Material;
-        }
-    }
+			this.GetComponent<SpriteRenderer>().material = 边缘高亮材质;
+			//Resources.Load("SpriteOutline", typeof(Material)) as Material;
+		}
+	}
 	//如果玩家离开门则取消高亮显示
 	private void OnTriggerExit2D(Collider2D collision)
 	{
 		if (collision.gameObject.tag == "Player")
 		{
-            this.GetComponent<SpriteRenderer>().material = spriteDefault;
-        }
+			this.GetComponent<SpriteRenderer>().material = spriteDefault;
+		}
 	}
 
 	/// <summary>
@@ -254,7 +269,7 @@ public class Door : MonoBehaviour
 	{
 		if (!isListEnd && eventList[currentEventIndex].eventType == DoorEventType.BUSY && !isLeftTimeIdle)//判断交互条件
 		{
-			if(playerPropInfo!=null&&playerPropInfo.PropType== eventList[currentEventIndex].propType)//判断玩家身上是否携带有正确的材料
+			if (playerPropInfo != null && playerPropInfo.PropType == eventList[currentEventIndex].propType)//判断玩家身上是否携带有正确的材料
 			{
 				currentProp = null;//清空玩家身上的材料
 				demandCompleted();//需求达成
