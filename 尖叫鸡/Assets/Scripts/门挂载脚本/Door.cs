@@ -83,6 +83,10 @@ public class Door : MonoBehaviour
 	private Sprite spriteGood;
 	[SerializeField]
 	private Sprite spriteBad;
+	[SerializeField]
+	private SpriteRenderer goodShadow;
+	[SerializeField]
+	private SpriteRenderer badShadow;
 
 
 
@@ -112,10 +116,14 @@ public class Door : MonoBehaviour
 			if (currentHealth <= 1)
 			{
 				doorDisplay.sprite = spriteBad;//门血量小于1,显示坏门素材
+				goodShadow.enabled = false;
+				badShadow.enabled = true;
 			}
 			else
 			{
 				doorDisplay.sprite = spriteGood;//否则显示好门素材
+				goodShadow.enabled = true;
+				badShadow.enabled = false;
 			}
 			//判断游戏是否结束
 			if (currentHealth <= 0)
