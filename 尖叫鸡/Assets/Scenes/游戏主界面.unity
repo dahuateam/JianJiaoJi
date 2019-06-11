@@ -1145,7 +1145,7 @@ MonoBehaviour:
   propTexture: {fileID: 1530058053}
   propPrefab: {fileID: 1552244072931199267, guid: 451e00c2de2e5f34f9e40b87707e37ac,
     type: 3}
-  moveEffect: {fileID: 6164294548744157953, guid: 7dbe275d54e84ef4686f77928d15084f,
+  moveEffectPrefab: {fileID: 6164294548744157953, guid: 7dbe275d54e84ef4686f77928d15084f,
     type: 3}
   myCollider: {fileID: 675290610}
   "\u5411\u4E0A\u79FB\u52A8\u6309\u952E": 119
@@ -4813,7 +4813,7 @@ MonoBehaviour:
   propTexture: {fileID: 416769611}
   propPrefab: {fileID: 1552244072931199267, guid: 451e00c2de2e5f34f9e40b87707e37ac,
     type: 3}
-  moveEffect: {fileID: 6164294548744157953, guid: 7dbe275d54e84ef4686f77928d15084f,
+  moveEffectPrefab: {fileID: 6164294548744157953, guid: 7dbe275d54e84ef4686f77928d15084f,
     type: 3}
   myCollider: {fileID: 716050050}
   "\u5411\u4E0A\u79FB\u52A8\u6309\u952E": 105
