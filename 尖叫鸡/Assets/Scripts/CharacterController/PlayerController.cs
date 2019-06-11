@@ -9,13 +9,14 @@ public class PlayerController : MonoBehaviour
 	public float moveSpeed = 5.0f; //角色移动速度，需要调整
 
 	private Prop currentProp;   //用于保存当前角色所携带的材料的内容;
+    private GameObject currentMoveEffect;  //保存当前角色身上的移动特效
 	private bool canPutDown = true;    //判断玩家能否放下道具
 	private Collider2D collision;     //保存玩家所触摸的对象
 
 
 	public SpriteRenderer propTexture;   //作为角色的子物体，用于显示当前角色所携带的材料的图片
 	public GameObject propPrefab;        //作为扔下材料的预制体
-	public GameObject moveEffect;     //人物移动时产生的特效
+	public GameObject moveEffectPrefab;     //人物移动时产生的特效的预制体
 	public BoxCollider2D myCollider;    //人物自身的碰撞体
 
 	public KeyCode 向上移动按键;         //可以自定义玩家在各个方向移动的按键
@@ -47,8 +48,16 @@ public class PlayerController : MonoBehaviour
 		//有一个按键按下则产生烟尘
 		if (Input.GetKeyDown(向上移动按键) || Input.GetKeyDown(向下移动按键) || Input.GetKeyDown(向左移动按键) || Input.GetKeyDown(向右移动按键))
 		{
-			GameObject g = Instantiate(moveEffect, this.transform);
-			Destroy(g, 5);
+            if (currentMoveEffect)
+            {
+                
+            }  //判断是否已经存在特效
+            else
+            {
+                currentMoveEffect =Instantiate(moveEffectPrefab, this.transform);//实例化一个特效
+                Destroy(currentMoveEffect, 1);   //一秒钟后销毁这个特效
+            }
+			
 		}
 
 		//角色移动相关：

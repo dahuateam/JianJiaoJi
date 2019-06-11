@@ -174,14 +174,14 @@ public class CraftBench : MonoBehaviour
 
         
         //判断是否符合铁横杠的配方：钉子+铁块=铁横杠
-        if (contains(PropType.钉子, PropType.铁块))
+        /*if (contains(PropType.钉子, PropType.铁块))
         {
             //如果符合则将产出材料设为铁横杠
             产出材料 = PropType.铁横杠;
             //材料齐全，可以开始制作了。
             InvokeRepeating("Manufacting", 0, Time.fixedDeltaTime);
             return;
-        }
+        }*/
         
 
         //判断是否符合交叉木板的配方：钉子+木板=交叉木板
@@ -196,7 +196,7 @@ public class CraftBench : MonoBehaviour
         
 
         //判断是否符合米字型防护的配方：交叉木板+铁横杠=米字型防护
-        if (contains(PropType.交叉木板, PropType.铁横杠))
+        if (contains(PropType.交叉木板, PropType.木板))
         {
             //如果符合则将产出材料设为铁横杠
             产出材料 = PropType.米字型防护;
