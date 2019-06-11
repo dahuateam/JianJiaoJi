@@ -801,7 +801,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ea24f7a8d0878b449acbb964878d392d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bd6c00c6f37d2314e898e50cb73fbe10, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1078,6 +1078,8 @@ MonoBehaviour:
   "\u80CC\u666F\u97F3\u4E50\u64AD\u653E\u5668": {fileID: 1943900082}
   soundEffectSlider: {fileID: 2070013655}
   BGMSlider: {fileID: 2089544127}
+  "\u89D2\u8272\u62FE\u53D6\u6750\u6599\u65F6\u97F3\u6548": {fileID: 0}
+  "\u89D2\u8272\u653E\u4E0B\u6750\u6599\u65F6\u97F3\u6548": {fileID: 0}
 --- !u!4 &726266074
 Transform:
   m_ObjectHideFlags: 0
@@ -2977,7 +2979,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0aab9b7874ff50443b1993d71f91f43b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f5b6cc3cb66d47d48ba63b4a2c0fffc5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
