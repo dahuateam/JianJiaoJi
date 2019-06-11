@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
 	//使用音效播放脚本
 	private AudioManager 播放角色音效的脚本;
 
+    private bool in_tutorial = true;
+    public GameObject tutorial;
+
 
 	void Start()
 	{
@@ -40,6 +43,46 @@ public class PlayerController : MonoBehaviour
 		PlayerMove();  //角色移动相关函数
 
 		PlayerInterface();      //角色交互相关函数
+
+        if (in_tutorial)
+        {
+            if(tutorialController.stepLeft == 1 && currentProp != null)
+            {
+                if(currentProp.PropType == PropType.铁块)
+                    tutorial.GetComponent<tutorialController>().StepThree();
+            }
+            if (tutorialController.stepRight == 1 && currentProp != null)
+            {
+                if (currentProp.PropType == PropType.原木)
+                    tutorial.GetComponent<tutorialController>().StepFour();
+            }
+
+            if ((tutorialController.stepLeft == 2 || tutorialController.stepRight == 2) && currentProp != null)
+            {
+                if (currentProp.PropType == PropType.钉子 || currentProp.PropType == PropType.木板)
+                    tutorial.GetComponent<tutorialController>().StepFive();
+            }
+            if (tutorialController.stepLeft == 3 && currentProp != null)
+            {
+                if (currentProp.PropType == PropType.交叉木板)
+                    tutorial.GetComponent<tutorialController>().StepSix();
+            }
+
+            if (tutorialController.stepLeft == 4 && tutorialController.stepRight == 4 && currentProp != null)
+            {
+                if (currentProp.PropType == PropType.米字型防护)
+                {
+                    tutorial.GetComponent<tutorialController>().StepSeven();
+                }
+            }
+
+            //这里原本没有用Destroy，但是有个BUG，所以先用Destroy可以解决问题；
+            else if (tutorialController.stepLeft == 5 && tutorialController.stepRight == 5 && currentProp == null)
+            {
+                Destroy(tutorial, 3f);
+                in_tutorial = false;
+            }
+        }
 	}
 
 	//角色移动相关函数：
@@ -182,7 +225,8 @@ public class PlayerController : MonoBehaviour
 		else
 		{
 			propTexture.sprite = currentProp.Sprite;
-		}
+
+        }
 	}
 
 	//角色与各种物体的交互
