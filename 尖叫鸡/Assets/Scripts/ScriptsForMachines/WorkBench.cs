@@ -33,6 +33,7 @@ public class WorkBench : MonoBehaviour
     private Material spriteDefault;     //保存台子默认的材质
 
     private Animator m2Animator;
+    public GameObject particleController;
 
     private void Awake()
     {
@@ -197,6 +198,7 @@ public class WorkBench : MonoBehaviour
             放着的材料[0] = new Prop(产出材料);   //生成新的材料
             Show_Mat_Texture();  //显示材料的图片
             StopManufacte();     //停止制作
+            particleController.GetComponent<pEffectController>().playCompletion(this.transform.position.x, this.transform.position.y);
             return;
         }
     }

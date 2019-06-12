@@ -52,22 +52,22 @@ namespace MaterialProp
             switch(type)
             {
                 case PropType.铁块:
-                    ResourceLoad("铁块");
+                    ResourceLoad("铁块UI");
                     break;
                 case PropType.原木:
-                    ResourceLoad("原木");
+                    ResourceLoad("原木UI");
                     break;
                 case PropType.钉子:
-                    ResourceLoad("钉子");
+                    ResourceLoad("钉子UI");
                     break;
                 case PropType.木板:
-                    ResourceLoad("木板");
+                    ResourceLoad("木板UI");
                     break;
                 case PropType.交叉木板:
-                    ResourceLoad("交叉木板");
+                    ResourceLoad("交叉木板UI");
                     break;
                 case PropType.米字型防护:
-                    ResourceLoad("米字型防护");
+                    ResourceLoad("米字型防护UI");
                     break;
                 default:
                     Debug.Log("没有定义你需要的材料道具！");

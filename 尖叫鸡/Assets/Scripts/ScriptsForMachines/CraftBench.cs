@@ -27,6 +27,7 @@ public class CraftBench : MonoBehaviour
 
     public Material outlineMaterial;      //用于显示当玩家靠近该工作台时边缘高亮的材质
     private Material spriteDefault;     //保存台子默认的材质
+    public GameObject particleController;
 
     private void Awake()
     {
@@ -241,6 +242,7 @@ public class CraftBench : MonoBehaviour
             Show_Mat_Texture();  //显示材料的图片
             已完成时间 = 0;
             StopManufacte();     //停止制作
+            particleController.GetComponent<pEffectController>().playCompletion(this.transform.position.x, this.transform.position.y);
             return;
         }
     }
