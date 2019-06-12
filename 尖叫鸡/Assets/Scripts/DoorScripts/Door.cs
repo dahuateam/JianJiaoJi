@@ -61,6 +61,8 @@ public class Door : MonoBehaviour
 	[SerializeField, Range(2, 5)]
 	private int maxHealth = 3;//门的最大生命值
 	[SerializeField]
+	private bool AutoStartList = false;//是否在游戏开始时候自动开始事件列表
+	[SerializeField]
 	private List<DoorEvent> eventList;//门的事件列表	
 
 
@@ -68,9 +70,11 @@ public class Door : MonoBehaviour
 	[SerializeField]
 	private SpriteRenderer[] healthDisplays;
 	[SerializeField]
-	private SpriteRenderer propDisplay;
+	private Canvas propCanvas;
 	[SerializeField]
-	private Image handleDisplay;
+	private Image propImage;
+	[SerializeField]
+	private Image propTimeBar;
 	[SerializeField]
 	private GameManagerControl m_GameManagerControl;
 	[SerializeField]
@@ -80,6 +84,18 @@ public class Door : MonoBehaviour
 	[SerializeField]
 	private SpriteRenderer doorDisplay;
 	[SerializeField]
+	private Sprite YUANMU;
+	[SerializeField]
+	private Sprite TIEKUAI;
+	[SerializeField]
+	private Sprite DINGZI;
+	[SerializeField]
+	private Sprite MUBAN;
+	[SerializeField]
+	private Sprite JIAOCHAMUBAN;
+	[SerializeField]
+	private Sprite MIZIFANGHU;
+	[SerializeField]
 	private Sprite spriteGood;
 	[SerializeField]
 	private Sprite spriteBad;
@@ -87,6 +103,8 @@ public class Door : MonoBehaviour
 	private SpriteRenderer goodShadow;
 	[SerializeField]
 	private SpriteRenderer badShadow;
+	[SerializeField]
+	private GameObject particleController;
 
 
 
@@ -138,7 +156,10 @@ public class Door : MonoBehaviour
 	void Start()
 	{
 		CurrentHealth = maxHealth;//根据maxHealth初始化生命值
-		changeEvent(0);//开始第一个事件
+		if (AutoStartList)
+		{
+			StartList();//开始第一个事件
+		}
 
 		spriteDefault = this.GetComponent<SpriteRenderer>().material;//初始化默认材质
 	}
@@ -149,7 +170,7 @@ public class Door : MonoBehaviour
 							  //更新计时器
 		if (timer > 0.0f) timer -= Time.deltaTime;
 		//若计时结束
-		if (timer <= 0.0f)
+		if (timer < 0.0f)
 		{
 			if (eventList[currentEventIndex].eventType == DoorEventType.IDLE)//IDLE事件计时结束
 			{
@@ -170,7 +191,7 @@ public class Door : MonoBehaviour
 		//根据timer更新进度条的显示
 		if (eventList[currentEventIndex].eventType == DoorEventType.BUSY)
 		{
-			handleDisplay.fillAmount = timer / eventList[currentEventIndex].busyTime;
+			propTimeBar.fillAmount = timer / eventList[currentEventIndex].busyTime;
 		}
 
 	}
@@ -183,8 +204,7 @@ public class Door : MonoBehaviour
 	{
 		if (index >= eventList.Count)//如果传入了超出范围的index,代表事件列表执行至尽头
 		{
-			propDisplay.sprite = null;//关闭需求材料的显示
-			handleDisplay.enabled = false;//关闭进度条的显示
+			propCanvas.enabled = false;
 			isListEnd = true;
 			return;
 		}
@@ -192,13 +212,32 @@ public class Door : MonoBehaviour
 		switch (eventList[currentEventIndex].eventType)
 		{
 			case DoorEventType.IDLE://切换至IDLE事件
-				propDisplay.sprite = null;//关闭需求材料的显示
-				handleDisplay.enabled = false;//关闭进度条的显示
+				propCanvas.enabled = false;
 				timer = eventList[currentEventIndex].idleTime;//设置timer
 				break;
 			case DoorEventType.BUSY:
-				propDisplay.sprite = new Prop(eventList[currentEventIndex].propType).Sprite;//显示需求的材料
-				handleDisplay.enabled = true;//开启进度条的显示
+				propCanvas.enabled = true;
+				switch (eventList[currentEventIndex].propType)
+				{
+					case PropType.铁块:
+						propImage.sprite = TIEKUAI;
+						break;
+					case PropType.原木:
+						propImage.sprite = YUANMU;
+						break;
+					case PropType.钉子:
+						propImage.sprite = DINGZI;
+						break;
+					case PropType.木板:
+						propImage.sprite = MUBAN;
+						break;
+					case PropType.交叉木板:
+						propImage.sprite = JIAOCHAMUBAN;
+						break;
+					case PropType.米字型防护:
+						propImage.sprite = MIZIFANGHU;
+						break;
+				}
 				timer = eventList[currentEventIndex].busyTime;//设置timer
 				isLeftTimeIdle = false;
 				break;
@@ -210,6 +249,7 @@ public class Door : MonoBehaviour
 	/// </summary>
 	private void demandFailed()
 	{
+		particleController.GetComponent<pEffectController>().doorDamanged(this.transform.position.x, this.transform.position.y);//播放特效
 		CurrentHealth = CurrentHealth - 1;//扣除生命值
 		switch (eventList[currentEventIndex].failedAction)//根据failedAction做出相应的失败行为
 		{
@@ -233,12 +273,12 @@ public class Door : MonoBehaviour
 	/// </summary>
 	private void demandCompleted()
 	{
+		particleController.GetComponent<pEffectController>().playCompletion(this.transform.position.x, this.transform.position.y);//播放特效
 		switch (eventList[currentEventIndex].completedAction)//根据completedAction做出相应的失败行为
 		{
 			case DemandCompletedAction.IDLE_LEFT_TIME:
 				isLeftTimeIdle = true;
-				propDisplay.sprite = null;//关闭需求材料的显示
-				handleDisplay.enabled = false;//关闭进度条的显示
+				propCanvas.enabled = false;
 				break;
 			case DemandCompletedAction.NEXT_RIGHT_NOW:
 				changeEvent(currentEventIndex + 1);//执行下一事件
@@ -291,6 +331,14 @@ public class Door : MonoBehaviour
 		{
 			currentProp = playerPropInfo;//什么也不做
 		}
+	}
+
+	/// <summary>
+	/// 供外部调用的开始列表事件
+	/// </summary>
+	public void StartList()
+	{
+		changeEvent(0);//开始第一个事件
 	}
 
 }
