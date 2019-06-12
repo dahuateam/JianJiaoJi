@@ -5,10 +5,10 @@ using UnityEngine.Video;
 
 public class VideoFinish : MonoBehaviour
 {
-     
+    VideoPlayer vp;
     void Start()
     {
-        VideoPlayer vp = this.GetComponent<VideoPlayer>();  //获取视频播放器组件
+        vp = this.GetComponent<VideoPlayer>();  //获取视频播放器组件
         
         VideoPlayer.EventHandler e = new VideoPlayer.EventHandler(Finish);   //建立一个事件触发委托
         
@@ -20,5 +20,12 @@ public class VideoFinish : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("游戏主界面");  //切换到游戏主界面场景
     }
-    
+
+    private void Update()
+    {
+        if (Input.anyKeyDown)   //按下任意按键则跳转场景
+        {
+            Finish(vp);
+        }
+    }
 }

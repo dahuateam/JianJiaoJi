@@ -571,7 +571,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u5F00\u59CB\u754C\u9762"
+          m_StringArgument: Start
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 61071269}
@@ -5586,7 +5586,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u5F00\u59CB\u754C\u9762"
+          m_StringArgument: Start
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 61071269}
