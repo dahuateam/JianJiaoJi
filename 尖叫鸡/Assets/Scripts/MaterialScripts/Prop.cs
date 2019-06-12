@@ -16,7 +16,6 @@ namespace MaterialProp
           钉子   ,   //钉子
           木板,     //木板
           交叉木板 ,   //交叉木板
-          铁横杠  ,     //铁横杠
           米字型防护     ,  //米字型防护
     }
     
@@ -67,9 +66,6 @@ namespace MaterialProp
                 case PropType.交叉木板:
                     ResourceLoad("交叉木板");
                     break;
-                case PropType.铁横杠:
-                    ResourceLoad("铁横杠");
-                    break;
                 case PropType.米字型防护:
                     ResourceLoad("米字型防护");
                     break;
@@ -102,9 +98,6 @@ namespace MaterialProp
                     break;
                 case "交叉木板":
                     this.propType = PropType.交叉木板;
-                    break;
-                case "铁横杠":
-                    this.propType = PropType.铁横杠;
                     break;
                 case "米字型防护":
                     this.propType = PropType.米字型防护;
