@@ -6,26 +6,56 @@ using UnityEngine.UI;
 public class GameManagerControl : MonoBehaviour
 {
     [SerializeField]
-    private Vector2 倒计时设置;   //设置倒计时时间，x为分，y为秒
+    private Vector2[] 倒计时设置;   //设置倒计时时间，x为分，y为秒
     private int minute;        //记录倒计时的分针
     private int second;        //记录倒计时的秒针
+    private int bout=1;        //记录当前是第几回合
 
     public Text timeText;     //用于显示倒计时的时间
     public RectTransform pausePanel;  //暂停面板
     public Image 游戏胜利横幅;
+    public Image 回合提示横幅;     //用于显示回合攻击提示
+    [Tooltip("预存每一回合用于显示回合攻击提示的图片集")]
+    public Sprite[] boutSprite;      //用于显示回合攻击提示的图片
     //初始化
     void Start()
     {
-        minute = (int)倒计时设置.x;
-        second = (int)倒计时设置.y;
-
-        int allTime = minute * 60 + second;   //记录总秒数
-        
-        //开始倒计时
-        InvokeRepeating("CountDownDisplay",0,1);    //一秒钟调用一次
-        Invoke("StopCountDown", allTime+1);    //多少秒后游戏结束
+        Bout(bout); //开始第一回合的计时
     }
     
+    //用于每回合调用的内容
+    void Bout(int bout)
+    {
+        if (bout > 倒计时设置.Length)//判断所有回合是否都已经执行了
+        {
+            //判断游戏结束，所有回合结束,显示出胜利横幅
+            游戏胜利横幅.gameObject.SetActive(true);
+            TimeScale();
+            return;
+        }
+
+        bout -= 1;
+
+        回合提示横幅.sprite = this.boutSprite[bout];  //获取当前回合攻击提示的图片
+        回合提示横幅.enabled=true;  //显示当前回合攻击提示的图片
+
+        StartCoroutine(CloseTexture());  //3秒后关闭当前回合攻击提示的图片
+
+        minute = (int)倒计时设置[bout].x;
+        second = (int)倒计时设置[bout].y;
+
+        int allTime = minute * 60 + second;   //记录总秒数
+
+        //开始倒计时
+        InvokeRepeating("CountDownDisplay", 0, 1);    //一秒钟调用一次
+        Invoke("NextBout", allTime + 1);    //多少秒后切换到下一个回合
+    }
+
+    IEnumerator CloseTexture()
+    {
+        yield return new WaitForSeconds(2);//多少秒后关闭当前回合攻击提示的图片
+        回合提示横幅.enabled = false;  
+    }
     //每一秒后显示当前的时间时调用
     private void CountDownDisplay()
     {
@@ -63,14 +93,12 @@ public class GameManagerControl : MonoBehaviour
         
     }
 
-    //停止显示倒计时并判断游戏结束
-    private void StopCountDown()
+    //切换到下一个回合
+    private void NextBout()
     {
         CancelInvoke("CountDownDisplay"); //停止显示倒计时
-
-        //判断游戏结束，时间到了胜利,显示出胜利横幅
-        游戏胜利横幅.gameObject.SetActive(true);
-        TimeScale();
+        this.bout++; //回合数加一，进入到下一回合的倒计时
+        Bout(this.bout);
     }
 
     //Time.timeScale等于0时FixedUpdate事件函数是不会执行的

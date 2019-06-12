@@ -84,22 +84,22 @@ namespace MaterialProp
             switch (chineseName)
             {
                 
-                case "铁块":
+                case "铁块UI":
                     this.propType = PropType.铁块;
                     break;
-                case "原木":
+                case "原木UI":
                     this.propType = PropType.原木;
                     break;
-                case "钉子":
+                case "钉子UI":
                     this.propType = PropType.钉子;
                     break;
-                case "木板":
+                case "木板UI":
                     this.propType = PropType.木板;
                     break;
-                case "交叉木板":
+                case "交叉木板UI":
                     this.propType = PropType.交叉木板;
                     break;
-                case "米字型防护":
+                case "米字型防护UI":
                     this.propType = PropType.米字型防护;
                     break;
 

@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class VideoFinish : MonoBehaviour
 {
+    public Image panel;
+    [Tooltip("视频播放完多少秒后切换场景")]
+    public int ChangeTime;
     VideoPlayer vp;
     void Start()
     {
@@ -18,14 +22,22 @@ public class VideoFinish : MonoBehaviour
     //触发委托调用的函数
     void Finish(VideoPlayer vp)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("游戏主界面");  //切换到游戏主界面场景
+        panel.enabled=true;
+        Invoke("ChangeScene", ChangeTime);
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("游戏主界面");  //切换到游戏主界面场景
     }
 
     private void Update()
     {
         if (Input.anyKeyDown)   //按下任意按键则跳转场景
         {
-            Finish(vp);
+            ChangeScene();
         }
+    }
+
+    //切换到游戏主场景的函数
+    private void ChangeScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("游戏主界面");  //切换到游戏主界面场景
     }
 }
