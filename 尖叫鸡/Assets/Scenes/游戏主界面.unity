@@ -243,9 +243,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u5012\u8BA1\u65F6\u8BBE\u7F6E":
-  - {x: 0, y: 15}
-  - {x: 0, y: 15}
-  - {x: 0, y: 15}
+  - {x: 1, y: 0}
+  - {x: 1, y: 30}
+  - {x: 1, y: 30}
   timeText: {fileID: 104581298}
   pausePanel: {fileID: 1683331695}
   "\u6E38\u620F\u80DC\u5229\u6A2A\u5E45": {fileID: 1191232372}
@@ -12492,20 +12492,68 @@ MonoBehaviour:
   - eventType: 1
     idleTime: 10
     propType: 3
-    busyTime: 25
-    completedAction: 0
-    failedAction: 1
+    busyTime: 20
+    completedAction: 1
+    failedAction: 0
   - eventType: 0
-    idleTime: 10
+    idleTime: 20
     propType: 3
     busyTime: 15
     completedAction: 0
     failedAction: 2
   - eventType: 1
     idleTime: 5
+    propType: 4
+    busyTime: 20
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 5
+    propType: 2
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 5
+    propType: 2
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 0
+    idleTime: 30
     propType: 5
     busyTime: 40
-    completedAction: 0
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 30
+    propType: 5
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 5
+    propType: 5
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 5
+    propType: 5
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 30
+    propType: 3
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 5
+    propType: 5
+    busyTime: 30
+    completedAction: 1
     failedAction: 0
   healthDisplays:
   - {fileID: 2475570945044163605}
@@ -12989,24 +13037,72 @@ MonoBehaviour:
   maxHealth: 2
   AutoStartList: 1
   eventList:
-  - eventType: 1
-    idleTime: 10
+  - eventType: 0
+    idleTime: 20
     propType: 4
     busyTime: 40
     completedAction: 2
     failedAction: 0
+  - eventType: 1
+    idleTime: 30
+    propType: 4
+    busyTime: 20
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 5
+    propType: 5
+    busyTime: 20
+    completedAction: 1
+    failedAction: 0
   - eventType: 0
     idleTime: 30
     propType: 3
-    busyTime: 15
-    completedAction: 0
-    failedAction: 2
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 5
+    propType: 5
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 5
+    propType: 5
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 5
+    propType: 4
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 0
+    idleTime: 30
+    propType: 4
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
   - eventType: 1
     idleTime: 5
     propType: 3
-    busyTime: 50
-    completedAction: 0
-    failedAction: 1
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 5
+    propType: 5
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 5
+    propType: 5
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
   healthDisplays:
   - {fileID: 2475570946285927497}
   - {fileID: 2475570944954458687}
@@ -13721,6 +13817,18 @@ MonoBehaviour:
   maxHealth: 2
   AutoStartList: 1
   eventList:
+  - eventType: 1
+    idleTime: 20
+    propType: 2
+    busyTime: 20
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 0
+    propType: 3
+    busyTime: 20
+    completedAction: 1
+    failedAction: 0
   - eventType: 0
     idleTime: 20
     propType: 0
@@ -13730,21 +13838,51 @@ MonoBehaviour:
   - eventType: 1
     idleTime: 0
     propType: 3
-    busyTime: 35
-    completedAction: 0
-    failedAction: 2
-  - eventType: 0
-    idleTime: 15
-    propType: 0
-    busyTime: 0
-    completedAction: 0
+    busyTime: 30
+    completedAction: 1
     failedAction: 0
   - eventType: 1
     idleTime: 0
     propType: 4
     busyTime: 30
-    completedAction: 0
-    failedAction: 1
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 0
+    propType: 2
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 0
+    idleTime: 30
+    propType: 4
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 0
+    propType: 4
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 0
+    propType: 5
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 0
+    propType: 5
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
+  - eventType: 1
+    idleTime: 0
+    propType: 2
+    busyTime: 30
+    completedAction: 1
+    failedAction: 0
   healthDisplays:
   - {fileID: 8454252777782429556}
   - {fileID: 8454252776472140034}
