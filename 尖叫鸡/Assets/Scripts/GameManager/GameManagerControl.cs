@@ -27,6 +27,8 @@ public class GameManagerControl : MonoBehaviour
     private int enemyNumberNow;
     public float diffTimer;
 
+	private bool gameOver = false;
+
     //初始化
     void Start()
     {
@@ -128,7 +130,7 @@ public class GameManagerControl : MonoBehaviour
     private void Update()
     {
         //如果没有暂停面板则不能执行暂停功能
-        if (pausePanel == null)
+        if (pausePanel == null || gameOver)
         {
             return;
         }
@@ -173,4 +175,18 @@ public class GameManagerControl : MonoBehaviour
             Time.timeScale = 1;  //恢复游戏
         }
     }
+
+	/// <summary>
+	/// 公开的函数,使所有鸡走入大门,供游戏失败时调用,参数为破开的入口位置
+	/// </summary>
+	public void EnemyEnter(Vector3 pos)
+	{
+		gameOver = true;
+		for (int i = 0; i < enemies.Count; i++)
+		{
+			enemies[i].GetComponent<chickenAttack>().ChickenEnter(pos);
+		}
+		
+	}
+
 }

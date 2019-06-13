@@ -146,8 +146,9 @@ public class Door : MonoBehaviour
 			//判断游戏是否结束
 			if (currentHealth <= 0)
 			{
+				doorDisplay.sprite = null;
 				gameFailedWindow.SetActive(true);
-				m_GameManagerControl.TimeScale();
+				m_GameManagerControl.EnemyEnter(transform.position);
 			}
 		}
 	}
