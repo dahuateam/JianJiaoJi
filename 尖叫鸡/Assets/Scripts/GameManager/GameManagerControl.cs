@@ -17,6 +17,16 @@ public class GameManagerControl : MonoBehaviour
     public Image 回合提示横幅;     //用于显示回合攻击提示
     [Tooltip("预存每一回合用于显示回合攻击提示的图片集")]
     public Sprite[] boutSprite;      //用于显示回合攻击提示的图片
+    public Sprite[] chickenSprite;
+    public int enemyNumber;
+    public float Timer = 2f;
+    public GameObject enemy;
+    GameObject enemyClone;
+    private List<GameObject> enemies = new List<GameObject>();
+    private bool newRound = false;
+    private int enemyNumberNow;
+    public float diffTimer;
+
     //初始化
     void Start()
     {
@@ -39,6 +49,9 @@ public class GameManagerControl : MonoBehaviour
         回合提示横幅.sprite = this.boutSprite[bout];  //获取当前回合攻击提示的图片
         回合提示横幅.enabled=true;  //显示当前回合攻击提示的图片
 
+        DestroyAllEnemy();
+        enemy.GetComponent<SpriteRenderer>().sprite = chickenSprite[bout];
+
         StartCoroutine(CloseTexture());  //3秒后关闭当前回合攻击提示的图片
 
         minute = (int)倒计时设置[bout].x;
@@ -56,6 +69,7 @@ public class GameManagerControl : MonoBehaviour
         yield return new WaitForSeconds(2);//多少秒后关闭当前回合攻击提示的图片
         回合提示横幅.enabled = false;  
     }
+
     //每一秒后显示当前的时间时调用
     private void CountDownDisplay()
     {
@@ -101,6 +115,15 @@ public class GameManagerControl : MonoBehaviour
         Bout(this.bout);
     }
 
+    private void DestroyAllEnemy()
+    {
+        for (int i = 0; i < enemies.Count; i++){
+            GameObject.Destroy(enemies[i]);
+            enemies.RemoveAt(i);
+        }
+        enemyNumberNow = 0;
+    }
+
     //Time.timeScale等于0时FixedUpdate事件函数是不会执行的
     private void Update()
     {
@@ -122,6 +145,19 @@ public class GameManagerControl : MonoBehaviour
             }
 
             TimeScale();
+        }
+
+
+        if (enemyNumber > enemyNumberNow)
+        {
+            Timer -= Time.deltaTime;
+            if (Timer <= 0f)
+            {
+                enemyClone = Instantiate(enemy, new Vector3(Random.Range(-60, 60), 50f, 0f), transform.rotation) as GameObject;
+                enemies.Add(enemyClone);
+                enemyNumberNow++;
+                Timer = diffTimer;
+            }
         }
     }
     
