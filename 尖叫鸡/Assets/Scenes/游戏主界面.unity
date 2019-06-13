@@ -2840,12 +2840,22 @@ PrefabInstance:
     - target: {fileID: 6675446411464774110, guid: 50106df6b388ecf4688467c902533434,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.4176321
+      value: -2.8906927
       objectReference: {fileID: 0}
     - target: {fileID: 6675446411464774110, guid: 50106df6b388ecf4688467c902533434,
         type: 3}
       propertyPath: m_Size.y
-      value: 11.365168
+      value: 16.311285
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675446411464774110, guid: 50106df6b388ecf4688467c902533434,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 1.0210392
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675446411464774110, guid: 50106df6b388ecf4688467c902533434,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 9.577921
       objectReference: {fileID: 0}
     - target: {fileID: 1322889037629478012, guid: 50106df6b388ecf4688467c902533434,
         type: 3}
@@ -2978,6 +2988,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 29.18
       objectReference: {fileID: 0}
+    - target: {fileID: 7092215741454271001, guid: 50106df6b388ecf4688467c902533434,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7092215741454271002, guid: 50106df6b388ecf4688467c902533434,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3058,6 +3073,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 29.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8343192335244254388, guid: 50106df6b388ecf4688467c902533434,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50106df6b388ecf4688467c902533434, type: 3}
@@ -3918,12 +3938,12 @@ PrefabInstance:
     - target: {fileID: 6675446411464774110, guid: 50106df6b388ecf4688467c902533434,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.25004387
+      value: -0.040730476
       objectReference: {fileID: 0}
     - target: {fileID: 6675446411464774110, guid: 50106df6b388ecf4688467c902533434,
         type: 3}
       propertyPath: m_Size.x
-      value: 6.4524384
+      value: 6.0338116
       objectReference: {fileID: 0}
     - target: {fileID: 1322889037629478012, guid: 50106df6b388ecf4688467c902533434,
         type: 3}
@@ -4132,6 +4152,21 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8343192335244254388, guid: 50106df6b388ecf4688467c902533434,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 6.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8343192335244254388, guid: 50106df6b388ecf4688467c902533434,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 16.662098
+      objectReference: {fileID: 0}
+    - target: {fileID: 8343192335244254388, guid: 50106df6b388ecf4688467c902533434,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 50106df6b388ecf4688467c902533434, type: 3}
@@ -4152,7 +4187,7 @@ GameObject:
   - component: {fileID: 718962684}
   - component: {fileID: 718962685}
   m_Layer: 0
-  m_Name: Space
+  m_Name: control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4209,12 +4244,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 3408fa0d0b59af043b27548300e3d2e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f27063af36bc1bd46983677dd0d59c5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.82, y: 0.44}
+  m_Size: {x: 1.84, y: 0.55}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -8522,7 +8557,7 @@ GameObject:
   - component: {fileID: 1564657972}
   - component: {fileID: 1564657973}
   m_Layer: 0
-  m_Name: Enter
+  m_Name: control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8579,12 +8614,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 8d1de0bac7e61f84abc9fa4a1e0188cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f27063af36bc1bd46983677dd0d59c5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.86, y: 0.5}
+  m_Size: {x: 1.84, y: 0.55}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
