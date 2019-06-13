@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: eb6180d471db2fe439d624ae9421f585
+guid: 802ea6ddb8030814984a31ea7e5563bb
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 7076090464118225710
-    second: "\u4E3B\u89D2\u4E00  \u4FEE\u6539_0"
-  - first:
-      213: 6462918958963250566
-    second: "\u4E3B\u89D2\u4E00  \u4FEE\u6539_1"
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -46,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,66 +69,13 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: "\u4E3B\u89D2\u4E00  \u4FEE\u6539_0"
-      rect:
-        serializedVersion: 2
-        x: 719
-        y: 0
-        width: 669
-        height: 1666
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 184f294a11e8041409ce7dfa1cae993c
-      internalID: 7076090464118225710
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u4E3B\u89D2\u4E00  \u4FEE\u6539_1"
-      rect:
-        serializedVersion: 2
-        x: 633
-        y: 908
-        width: 755
-        height: 755
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec4dbec9690448d4d9b66951f9817b2a
-      internalID: 6462918958963250566
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 40e930c3bc06d2749b52acf389d40aa0
+    spriteID: 864f220af4c73d643b7a3fae003eabbf
     internalID: 0
     vertices: []
     indices: 
