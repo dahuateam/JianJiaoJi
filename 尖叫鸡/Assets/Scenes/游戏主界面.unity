@@ -12486,7 +12486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce59d5d4c3777dd418cd99cefe62fb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 2
   AutoStartList: 1
   eventList:
   - eventType: 1
@@ -12986,7 +12986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce59d5d4c3777dd418cd99cefe62fb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 2
   AutoStartList: 1
   eventList:
   - eventType: 1
@@ -13718,7 +13718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce59d5d4c3777dd418cd99cefe62fb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 2
   AutoStartList: 1
   eventList:
   - eventType: 0
