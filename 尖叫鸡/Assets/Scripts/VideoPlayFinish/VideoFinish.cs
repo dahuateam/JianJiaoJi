@@ -10,6 +10,7 @@ public class VideoFinish : MonoBehaviour
     [Tooltip("视频播放完多少秒后切换场景")]
     public int ChangeTime;
     VideoPlayer vp;
+    private int click = 0;
     void Start()
     {
         vp = this.GetComponent<VideoPlayer>();  //获取视频播放器组件
@@ -30,6 +31,16 @@ public class VideoFinish : MonoBehaviour
     private void Update()
     {
         if (Input.anyKeyDown)   //按下任意按键则跳转场景
+        {
+            click++;
+            
+        }
+        if (click == 1)
+        {
+            this.gameObject.GetComponent<VideoPlayer>().Stop();
+            panel.gameObject.GetComponent<Image>().enabled = true;
+        }
+        else if(click == 2)
         {
             ChangeScene();
         }
